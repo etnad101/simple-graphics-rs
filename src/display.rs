@@ -98,14 +98,21 @@ impl Display {
         let font = self.font.clone().unwrap();
 
         let mut char_x_offset = 0;
+        let mut char_y_offset = 0;
         for c in text.chars() {
-            let character = font.get_character(c);
+            let character = if c == '\n' {
+                char_y_offset += font.bounding_box().1;
+                char_x_offset = 0;
+                continue;
+            } else {
+                font.get_character(c)
+            };
 
             for (pixel_y_offset, byte) in character.get_bytes().iter().enumerate() {
                 for (pixel_x_offset, bit_offset) in (0..7).enumerate() {
                     let bit_set = (byte & (1 << (7 - bit_offset))) > 0;
                     let x = start_x + char_x_offset + pixel_x_offset;
-                    let y = start_y + pixel_y_offset;
+                    let y = start_y + pixel_y_offset + char_y_offset as usize;
                     if bit_set {
                         self.draw_pixel(x, y, BLACK).unwrap();
                     }

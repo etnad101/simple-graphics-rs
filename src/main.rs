@@ -15,7 +15,7 @@ fn main() {
         display.clear();
         display.render_text("Hello,", 0, 0).unwrap();
         display.render_text("World!", 0, 16).unwrap();
-        display.render_text("Some text", 100, 16).unwrap();
+        display.render_text("Some \ntext", 100, 16).unwrap();
         display.render().unwrap();
     }
 }

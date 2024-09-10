@@ -151,7 +151,9 @@ impl Font {
             characters,
         })
     }
-
+    pub fn bounding_box(&self) -> Vec4 {
+        self.bounding_box
+    }
     pub fn get_character(&self, c: char) -> &Character {
         // TODO: Return a default character if one not found
         self.characters.get(&c).unwrap()
