@@ -6,17 +6,16 @@ use simple_graphics::{
 fn main() {
     let mut display = Display::new("test window", 500, 500, true).unwrap();
 
-    let font = Font::new("./retro-pixel-cute-mono.bdf").unwrap();
+    let font = Font::new("./fonts/retro-pixel-cute-mono.bdf").unwrap();
 
     display.set_background(WHITE);
     display.set_font(font);
 
-    let mut x: i32 = 0;
     while display.is_open() {
         display.clear();
-        let msg = format!("Test Value: {}", x);
-        x = x.wrapping_add(1);
-        display.render_text(&msg, 0, 0).unwrap();
+        display.render_text("Hello,", 0, 0).unwrap();
+        display.render_text("World!", 0, 16).unwrap();
+        display.render_text("Some text", 100, 16).unwrap();
         display.render().unwrap();
     }
 }

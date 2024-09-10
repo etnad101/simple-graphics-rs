@@ -111,7 +111,7 @@ impl Display {
                     }
                 }
             }
-            char_x_offset += 8;
+            char_x_offset += character.d_width().0 as usize;
         }
         Ok(())
     }

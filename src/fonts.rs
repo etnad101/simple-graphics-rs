@@ -23,6 +23,10 @@ impl Character {
     pub fn get_bytes(&self) -> &[u8] {
         &self.bytes
     }
+
+    pub fn d_width(&self) -> Vec2 {
+        self.d_width
+    }
 }
 
 #[derive(Clone)]
