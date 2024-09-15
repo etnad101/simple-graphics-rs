@@ -92,6 +92,7 @@ impl Display {
     pub fn render_text(
         &mut self,
         text: &str,
+        color: Color,
         start_x: usize,
         start_y: usize,
     ) -> Result<(), &'static str> {
@@ -114,7 +115,7 @@ impl Display {
                     let x = start_x + char_x_offset + pixel_x_offset;
                     let y = start_y + pixel_y_offset + char_y_offset as usize;
                     if bit_set {
-                        self.draw_pixel(x, y, BLACK).unwrap();
+                        self.draw_pixel(x, y, color).unwrap();
                     }
                 }
             }

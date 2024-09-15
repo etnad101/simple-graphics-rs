@@ -1,5 +1,5 @@
 use simple_graphics::{
-    display::{Display, WHITE},
+    display::{Display, WHITE, BLACK},
     fonts::Font,
 };
 
@@ -13,9 +13,9 @@ fn main() {
 
     while display.is_open() {
         display.clear();
-        display.render_text("Hello,", 0, 0).unwrap();
-        display.render_text("World!", 0, 16).unwrap();
-        display.render_text("Some \ntext", 100, 16).unwrap();
+        display.render_text("Hello,", BLACK, 0, 0).unwrap();
+        display.render_text("World!", BLACK, 0, 16).unwrap();
+        display.render_text("Some \ntext", BLACK, 100, 16).unwrap();
         display.render().unwrap();
     }
 }
