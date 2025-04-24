@@ -7,6 +7,7 @@ pub type Color = u32;
 pub const BLACK: Color = 0x00000000;
 pub const WHITE: Color = 0x00FFFFFF;
 
+#[allow(unused)]
 fn rgb(r: u8, g: u8, b: u8) -> u32 {
     let (r, g, b) = (r as u32, g as u32, b as u32);
     (r << 16) | (g << 8) | b
